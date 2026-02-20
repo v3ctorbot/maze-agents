@@ -3,19 +3,63 @@
 @tailwind utilities;
 
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
-}
-
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+  --background: #0b1121;
+  --foreground: #e2e8f0;
 }
 
 body {
   color: var(--foreground);
   background: var(--background);
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: var(--font-geist-mono), monospace;
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+}
+
+/* HUD card base */
+.hud-card {
+  @apply bg-slate-900/80 border border-slate-700/60 rounded-xl backdrop-blur-sm p-3;
+}
+
+/* Agent-specific borders */
+.hud-card-v3ktor {
+  @apply border-cyan-500/50;
+}
+
+.hud-card-claude {
+  @apply border-amber-500/50;
+}
+
+/* Status badge variants */
+.badge {
+  @apply inline-flex items-center gap-1 px-2 py-0.5 rounded-full text-xs font-medium border;
+}
+.badge-idle {
+  @apply bg-slate-500/20 text-slate-300 border-slate-500/50;
+}
+.badge-thinking {
+  @apply bg-yellow-500/20 text-yellow-300 border-yellow-500/50;
+}
+.badge-communicating {
+  @apply bg-blue-500/20 text-blue-300 border-blue-500/50;
+}
+.badge-moving {
+  @apply bg-green-500/20 text-green-300 border-green-500/50;
+}
+.badge-arrived {
+  @apply bg-cyan-500/20 text-cyan-300 border-cyan-500/50;
+}
+
+/* Buttons */
+.btn {
+  @apply px-4 py-2 rounded-lg text-sm font-medium transition-all duration-150 border;
+}
+.btn-primary {
+  @apply bg-cyan-500/20 text-cyan-300 border-cyan-500/50 hover:bg-cyan-500/30;
+}
+.btn-secondary {
+  @apply bg-slate-700/40 text-slate-300 border-slate-600/50 hover:bg-slate-700/60;
+}
+.btn-danger {
+  @apply bg-red-500/20 text-red-300 border-red-500/50 hover:bg-red-500/30;
 }
