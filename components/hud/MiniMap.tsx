@@ -4,7 +4,7 @@ import { useEffect, useRef } from "react";
 import { useGameStore } from "@/lib/store/gameStore";
 import { CELL_SIZE } from "@/lib/utils/constants";
 
-const MINI = 4;
+const MINI = 7;
 
 export default function MiniMap() {
   const canvasRef = useRef<HTMLCanvasElement>(null);
@@ -59,7 +59,7 @@ export default function MiniMap() {
       const ax = (pos[0] / CELL_SIZE) * MINI + MINI / 2;
       const ay = (pos[2] / CELL_SIZE) * MINI + MINI / 2;
       ctx.beginPath();
-      ctx.arc(ax, ay, 1.5, 0, Math.PI * 2);
+      ctx.arc(ax, ay, 2.5, 0, Math.PI * 2);
       ctx.fillStyle = color;
       ctx.fill();
     };
